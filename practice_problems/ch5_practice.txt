@@ -1,0 +1,42 @@
+1.
+Using the count method:
+set<string> strings;
+if (strings.count("hello")) { ... }
+
+2.
+Set cannot contain duplicates
+Set types must be naturally comparable (implement the comparison operators). This is because the set class is implemented using a balanced binary tree.
+
+3.
+Insert the insert method:
+set<string> strings;
+strings.insert("hello");
+
+Erase using the erase method:
+set<string> strings;
+strings.erase("hello");
+
+4.
+set: 1
+multiset: many
+
+5.
+You iterate over elements in a set using an interator
+set<string> strings;
+set<string>::iterator it;
+
+for (it = strings.begin(); it != strings.end(); ++it) { ... }
+
+6.
+Using the count method:
+map<string,int> m;
+if (m.count("hello")) { ... }
+
+7.
+map<string,int> m;
+(a) m["hello"] = 1;
+(b) m.insert(make_pair("hello", 1));
+
+8.
+Using the square brackets, a new element is inserted.
+The find function performs as expected (not inserting a new element, and returning a iterator to map::end)

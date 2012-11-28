@@ -1,0 +1,12 @@
+1.
+push_back adds a single element to the end of the vector increasing the size by one. resize can be used to both grow and shrink the vector.
+
+2.
+<vector> and <deque>
+
+3.
+via the size() member function for both
+
+4.
+via the pop_front() member function for a deque
+via the erase(vec.begin()) member function
