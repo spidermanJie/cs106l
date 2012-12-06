@@ -1,0 +1,22 @@
+1.
+Generalized to handle multiple different container types
+Better performance/more optimized
+Well tested/bug free
+
+2.
+The _if suffix indicates an algorithm can be applied conditionally based on a predicate function
+The _n suffix indicates an algorithm can applied a given number of times (vs. over a range)
+
+3.
+InputIterator
+OutputIterator
+ForwardIterator
+BiDirectionIterator
+RandomAccessIterator
+
+4.
+It's not legal to use a input iterator when a forward iterator is expected.
+It is valid to use a forward iterator when an input iterator is expected
+
+5.
+back_insert_iterator is needed because we often do not know ahead of time the size of the container we may be inserting/copying in to. If it didn't exist, an output iterator may write beyond the bounds of the container it is storing values in.
