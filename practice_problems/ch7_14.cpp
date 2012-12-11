@@ -1,0 +1,40 @@
+#include <iostream>
+
+enum Color
+{
+    #define DEFINE_COLOR(color) color,
+    #include "color.h"
+    #undef DEFINE_COLOR
+};
+
+Color StringToColor(std::string str)
+{
+    #define DEFINE_COLOR(color) if (str == #color) return color;
+    #include "color.h"
+    #undef DEFINE_COLOR
+    
+    return NOT_A_COLOR;
+}
+
+std::string ColorToString(Color c)
+{
+    switch (c)
+    {
+        #define DEFINE_COLOR(color) case color: return #color;
+        #include "color.h"
+        #undef DEFINE_COLOR
+        
+        default: return "<unknown>";
+    }
+}
+int main()
+{
+    std::cout << ColorToString(Red) << std::endl;
+    std::cout << ColorToString(NOT_A_COLOR) << std::endl;
+    
+    std::cout << StringToColor("Green") << std::endl;
+    std::cout << StringToColor("green") << std::endl;
+    std::cout << StringToColor("Olive") << std::endl;
+
+    return 0;
+}

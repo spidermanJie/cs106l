@@ -1,0 +1,39 @@
+1.
+When angle brackets are used the file is searched for from the system/compiler include directory. When double quotes are used the file is searched for in the local directory.
+
+2.
+You should use const instead. Better due to type checking
+
+3.
+#ifdef can also be used to conditionally include code per OS for a multi-platform project
+
+4.
+An include guard is necessary so a header file will not be included more than once.
+#ifndef HEADER_H
+#define HEADER_H
+
+...
+
+#endif
+
+Or alternatively, you can use #pragma once
+
+5.
+int Max(int a, int b)
+{
+    return (a > b) ? a : b;
+}
+
+It does not suffer from the problem with the MAX macro where the arguments can be evaluated more than once.
+
+6.
+The MAX macro is inlined and fast, whereas the function is not.
+
+7.
+This resriction exists because the preprocessor is called first before any of the code is evaluated by the compiler. So the symbol "IsPositive" is meaningless to the preprocessor.
+
+8.
+Inlining a recursive function would be challenging since it would not be known at compile time how many times a function would have to be inlined (that is, how many times will the recursive function actually be called)
+
+9.
+Why are STL algorithms inlined? Algorithm inlining is done for performance reasons, so you don't incur the cost of calling the function. This may be because STL algorithms may be called from very performance critical code, and the implementation is expected to be as fast as possible. There is nothing lost by requesting the compiler inline code, and potentially there is some upside.
