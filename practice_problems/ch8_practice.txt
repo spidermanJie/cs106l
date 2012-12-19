@@ -1,0 +1,8 @@
+1.
+You can allocate on the stack or on the heap.
+
+2.
+Using the strncpy method exported by the <cstring> header
+
+3.
+Using the strncmp
